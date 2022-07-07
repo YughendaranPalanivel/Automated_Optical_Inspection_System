@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>AOIS</title>
+    <style>
+      *, *::before, *::after{
+    margin: 10px;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    }
+
+    :root{
+        --primary-color: #1C5E20;
+        --assent-color: #2F7D32;
+        --black:Wheat;
+        --white: #FFFFFF;
+    }
+
+    body{
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        font-family: sans-serif;
+    }
+    </style>
+</head>
+<body>
+  <div class="ceil-container"></div>
+  <header class="app-header">
+    <h2>AOI</h2>
+  </header>
+  <div class="home-section">
+    <form onsubmit="handleSubmit(event)" class="image-form" action = "/predict" method = "post" enctype="multipart/form-data">
+        <input onchange="handleImageSelect(event)" type="file" accept="image/*" name="file"/>
+        <button class="scan">SCAN</button>
+    </form>
+    <div class="image-preview-container">
+      <img src="" alt="" id="predict-image"/>
+    </div>
+    <div>
+      <h2>{{product}}</h2>
+      <h2>{{predict_value}}</h2>
+    </div>
+  </div>
+  <script>
+    const previewImage = document.getElementById("predict-image");
+    const handleImageSelect = (event) =>{
+      previewImage.setAttribute('src', URL.createObjectURL(event.target.files[0]));
+    }
+
+    const handleSubmit = (event) => {
+
+    }
+  </script>
+</body>
+</html>
